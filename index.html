@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>FlorrExt Demo</title>
+</head>
+<body>
+
+<canvas id="myCanvas" width="640" height="480" style="border:1px solid #000000;">
+    您的浏览器不支持 HTML5 canvas 标签。
+</canvas>
+
+<script type="module">
+    // import { drawInterArrow } from './js/drawUtil.js';
+    // import { Bullet } from './js/bullet.js';
+    import { Hero } from './js/hero.js';
+    import { Map } from './js/map.js';
+
+    const canvas = document.getElementById("myCanvas");
+    let ctx2d = canvas.getContext("2d");
+
+    window.onresize = resizeCanvas;
+
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        if(map){
+            map.resize(canvas.width, canvas.height);
+        }
+    }
+
+
+    let map = new Map(canvas.width, canvas.height);
+    let h = new Hero(100, 100, 20);
+
+    resizeCanvas();
+
+    /* 给画布绑定鼠标经过事件 */
+    canvas.addEventListener('mousemove', function (e) {
+        /* 传入x，y，r。offsetX距离左侧距离，..， */
+        h.setTarget(e.offsetX, e.offsetY);
+    })
+
+    /* 定时器渲染小圆，开始动画 ，30毫秒一次 */
+    setInterval(function () {
+        h.update();
+
+        map.render(ctx2d);
+        h.render(ctx2d);
+    }, 30)
+
+
+</script>
+
+
+</body>
+</html>
