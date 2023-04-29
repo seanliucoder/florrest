@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <title>Florrest Demo</title>
+    <title>Florrest</title>
 </head>
 <body>
 
@@ -96,7 +96,7 @@
         }
     }
 
-    class Hero {
+    class player {
         constructor(x, y, r) {
             this.x = x;
             this.y = y;
@@ -177,7 +177,7 @@
     }
 
 
-    let h = new Hero(100, 100, 20);
+    let h = new player(100, 100, 20);
 
     /* 给画布绑定鼠标经过事件 */
     canvas.addEventListener('mousemove', function (e) {
