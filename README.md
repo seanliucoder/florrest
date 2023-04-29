@@ -7,3 +7,4 @@ florrest是全球知名oi游戏 [florr](https://florr.io) 的大型拓展包。
 
 如：天气系统、forrest模式、众多生物、银行（迭代器）、交易商店、人类系统、更高生物等级。
 
+你好，这是我的florrest功能，还在开发中.
